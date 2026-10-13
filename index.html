@@ -91,7 +91,7 @@
 
       /* ---------- KPI strip ---------- */
       .kpis{
-        display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:30px 0 8px;
+        display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:30px 0 8px;
       }
       .kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
       .kpi .num{font-family:"Newsreader",Georgia,serif;font-weight:800;font-size:34px;line-height:1}
@@ -267,19 +267,21 @@
         </div>
         <h1>Where the catchment offer line fell, <span class="thin">across the years</span></h1>
         <p class="lede">
-          This page now follows <strong>one group only: girls inside the 12.5-mile priority (catchment)
-          area</strong> — Samira's category. Of everyone who sat the test, <strong>559 catchment
-          candidates</strong> sat for September 2019, <strong>514</strong> for September 2020,
-          <strong>559</strong> for September 2025 and <strong>543</strong> for September 2026. In each year the funnel runs the same way: catchment
-          candidates who sat the test → those who met the year's bar with the writing standard → those who
-          cleared the catchment offer line. Samira's <strong>106.68</strong> (September 2027 entry) clears
-          the 2020 line outright, sits inside the 2026 range, and misses the 2025 one. Switch years with
-          the tabs below; the final section compares all five cohorts.
+          Each year's funnel starts from <strong>everyone who sat the test</strong> and narrows down to
+          Samira's category — girls inside the 12.5-mile priority (catchment) area: all candidates →
+          all who met the year's bar with the writing standard → those who met it inside the catchment →
+          those who cleared the catchment offer line. Totals who sat: <strong>1,260</strong> for September 2019,
+          <strong>1,048</strong> for September 2020, <strong>1,225</strong> for September 2025 and
+          <strong>1,198</strong> for September 2026. For Samira's own September 2027 cohort, the school's
+          results FAQs record <strong>1,119</strong> candidates sitting the test and <strong>476</strong>
+          reaching the eligible score; the 2027 catchment split is not published yet. Samira's
+          <strong>106.68</strong> clears the 2020 line outright, sits inside the 2026 range, and misses
+          the 2025 one. Switch years with the tabs below; the final section compares all five cohorts.
         </p>
         <div class="samira-callout">
           <div class="score">106.68</div>
           <p>
-            <b>Samira's score</b> (September 2027 entry, Category 2 — eligible at 92+, one of 476 eligible candidates).
+            <b>Samira's score</b> (September 2027 entry, Category 2 — eligible at 92+, one of 476 eligible candidates out of 1,119 who sat the test).
             The family home, around 8 miles away, is <b>inside</b> the 12.5-mile priority area — the category whose
             offer line was 105–106 in 2019 and 2020, 107–108 in 2025 and 106–107 in 2026. Her score clears the 2020 line
             outright, clears the 2026 line and falls short of the 2025 one. Thresholds move every year; this page
@@ -297,15 +299,20 @@
 
       <div class="year-panel" id="panel-2026" role="tabpanel" aria-labelledby="tab-2026">
 
-      <div class="kpis" role="list" aria-label="Headline figures, catchment area only">
+      <div class="kpis" role="list" aria-label="Headline figures, September 2026 intake">
         <div class="kpi" role="listitem">
-          <div class="num">543</div>
-          <div class="label">Catchment candidates</div>
-          <div class="sub">Sat the test from inside the 12.5-mile area (of 1,198 in total)</div>
+          <div class="num">1,198</div>
+          <div class="label">Candidates sat the test</div>
+          <div class="sub">Total, all areas — 543 of them from inside the catchment</div>
+        </div>
+        <div class="kpi" role="listitem">
+          <div class="num">485</div>
+          <div class="label">Met the standard + bar</div>
+          <div class="sub">Total: “Of the Standard” and scoring 87 or above, all areas (40.5% of all candidates)</div>
         </div>
         <div class="kpi" role="listitem">
           <div class="num">365</div>
-          <div class="label">Met the standard + bar</div>
+          <div class="label">Met the standard + bar · catchment</div>
           <div class="sub">Catchment girls “Of the Standard” and scoring 87 or above (67.2% of catchment candidates)</div>
         </div>
         <div class="kpi" role="listitem">
@@ -392,22 +399,27 @@
         </div>
 
         <div class="card">
-          <h3>The catchment funnel: from 543 candidates to 151 over the line</h3>
-          <p class="hint">Catchment area only, in the order the user asked for: sat the test → met the bar
-          with the writing standard → cleared the catchment offer line.</p>
+          <h3>The funnel: from 1,198 who sat the test to 151 over the line</h3>
+          <p class="hint">From the whole cohort down to the catchment: sat the test (total) → met the bar
+          with the writing standard (total) → met it inside the catchment → cleared the catchment offer line.</p>
           <div class="funnel">
             <div class="fstep">
-              <div class="bar" style="width:100%;background:var(--ink-3)">543</div>
-              <div class="txt"><b>Catchment candidates sat the test</b><span>From inside the 12.5-mile priority area, September 2026 intake</span></div>
+              <div class="bar" style="width:100%;background:var(--ink-3)">1,198</div>
+              <div class="txt"><b>Candidates sat the test (total)</b><span>All areas, September 2026 intake — everyone who attended, in and out of the catchment</span></div>
             </div>
             <div class="fstep"><div class="arrow" aria-hidden="true">↓</div></div>
             <div class="fstep">
-              <div class="bar" style="width:67%;background:var(--green)">365</div>
-              <div class="txt"><b>Met the bar + “Of the Standard”</b><span>Scored 87 or above <em>and</em> met the writing standard · 67.2% of catchment candidates (410 met the standard; 45 of them scored below 87)</span></div>
+              <div class="bar" style="width:40%;background:var(--green)">485</div>
+              <div class="txt"><b>Met the bar + “Of the Standard” (total)</b><span>Scored 87 or above <em>and</em> met the writing standard, all areas · 40.5% of everyone who sat the test</span></div>
             </div>
             <div class="fstep"><div class="arrow" aria-hidden="true">↓</div></div>
             <div class="fstep">
-              <div class="bar" style="width:28%;background:var(--green-dark)">151</div>
+              <div class="bar" style="width:30%;background:var(--green)">365</div>
+              <div class="txt"><b>Met the bar + “Of the Standard” in the catchment</b><span>Catchment girls only · 67.2% of the 543 catchment candidates (410 met the standard; 45 of them scored below 87)</span></div>
+            </div>
+            <div class="fstep"><div class="arrow" aria-hidden="true">↓</div></div>
+            <div class="fstep">
+              <div class="bar" style="width:13%;background:var(--green-dark)">151</div>
               <div class="txt"><b>Cleared the offer line (catchment)</b><span>Scored above 106 with the standard · 27.8% of catchment candidates · 41.4% of the 365 above</span></div>
             </div>
           </div>
@@ -475,15 +487,20 @@
 
       <div class="year-panel" id="panel-2025" role="tabpanel" aria-labelledby="tab-2025" hidden>
 
-      <div class="kpis" role="list" aria-label="Headline figures, September 2025 intake, catchment area only">
+      <div class="kpis" role="list" aria-label="Headline figures, September 2025 intake">
         <div class="kpi" role="listitem">
-          <div class="num">559</div>
-          <div class="label">Catchment candidates</div>
-          <div class="sub">Sat the test from inside the 12.5-mile area (of 1,225 in total)</div>
+          <div class="num">1,225</div>
+          <div class="label">Candidates sat the test</div>
+          <div class="sub">Total, all areas — 559 of them from inside the catchment</div>
+        </div>
+        <div class="kpi" role="listitem">
+          <div class="num">417</div>
+          <div class="label">Met the standard + bar</div>
+          <div class="sub">Total: “Of the Standard” and scoring 92 or above, all areas (34.0% of all candidates)</div>
         </div>
         <div class="kpi" role="listitem">
           <div class="num">306</div>
-          <div class="label">Met the standard + bar</div>
+          <div class="label">Met the standard + bar · catchment</div>
           <div class="sub">Catchment girls “Of the Standard” and scoring 92 or above (54.7% of catchment candidates)</div>
         </div>
         <div class="kpi" role="listitem">
@@ -571,22 +588,27 @@
         </div>
 
         <div class="card">
-          <h3>The catchment funnel: from 559 candidates to 148 over the line</h3>
-          <p class="hint">Catchment area only: sat the test → met the bar with the writing standard → cleared
-          the catchment offer line.</p>
+          <h3>The funnel: from 1,225 who sat the test to 148 over the line</h3>
+          <p class="hint">From the whole cohort down to the catchment: sat the test (total) → met the bar
+          with the writing standard (total) → met it inside the catchment → cleared the catchment offer line.</p>
           <div class="funnel">
             <div class="fstep">
-              <div class="bar" style="width:100%;background:var(--ink-3)">559</div>
-              <div class="txt"><b>Catchment candidates sat the test</b><span>From inside the 12.5-mile priority area, September 2025 intake</span></div>
+              <div class="bar" style="width:100%;background:var(--ink-3)">1,225</div>
+              <div class="txt"><b>Candidates sat the test (total)</b><span>All areas, September 2025 intake — everyone who attended, in and out of the catchment</span></div>
             </div>
             <div class="fstep"><div class="arrow" aria-hidden="true">↓</div></div>
             <div class="fstep">
-              <div class="bar" style="width:55%;background:var(--green)">306</div>
-              <div class="txt"><b>Met the bar + “Of the Standard”</b><span>Scored 92 or above <em>and</em> met the writing standard · 54.7% of catchment candidates (379 met the standard; 73 of them scored below 92)</span></div>
+              <div class="bar" style="width:34%;background:var(--green)">417</div>
+              <div class="txt"><b>Met the bar + “Of the Standard” (total)</b><span>Scored 92 or above <em>and</em> met the writing standard, all areas · 34.0% of everyone who sat the test</span></div>
             </div>
             <div class="fstep"><div class="arrow" aria-hidden="true">↓</div></div>
             <div class="fstep">
-              <div class="bar" style="width:26%;background:var(--green-dark)">148</div>
+              <div class="bar" style="width:25%;background:var(--green)">306</div>
+              <div class="txt"><b>Met the bar + “Of the Standard” in the catchment</b><span>Catchment girls only · 54.7% of the 559 catchment candidates (379 met the standard; 73 of them scored below 92)</span></div>
+            </div>
+            <div class="fstep"><div class="arrow" aria-hidden="true">↓</div></div>
+            <div class="fstep">
+              <div class="bar" style="width:12%;background:var(--green-dark)">148</div>
               <div class="txt"><b>Cleared the offer line (catchment)</b><span>Scored above 107 with the standard · 26.5% of catchment candidates · 48.4% of the 306 above</span></div>
             </div>
           </div>
@@ -654,11 +676,16 @@
 
       <div class="year-panel" id="panel-2020" role="tabpanel" aria-labelledby="tab-2020" hidden>
 
-      <div class="kpis" role="list" aria-label="Headline figures, September 2020 intake, catchment area only">
+      <div class="kpis" role="list" aria-label="Headline figures, September 2020 intake">
+        <div class="kpi" role="listitem">
+          <div class="num">1,048</div>
+          <div class="label">Candidates sat the test</div>
+          <div class="sub">Total, all areas</div>
+        </div>
         <div class="kpi" role="listitem">
           <div class="num">514</div>
           <div class="label">Catchment candidates</div>
-          <div class="sub">Sat the test from inside the 12.5-mile area (of 1,048 in total)</div>
+          <div class="sub">Sat the test from inside the 12.5-mile area (49.0% of all candidates)</div>
         </div>
         <div class="kpi" role="listitem">
           <div class="num">—</div>
@@ -750,17 +777,23 @@
         </div>
 
         <div class="card">
-          <h3>The catchment funnel: from 514 candidates to 165 over the line</h3>
-          <p class="hint">Catchment area only. No writing standard or eligibility bar is recorded for 2020,
-          so there is no middle “met the bar” step this year — the funnel goes straight to the offer line.</p>
+          <h3>The funnel: from 1,048 who sat the test to 165 over the line</h3>
+          <p class="hint">Everyone who sat the test → the catchment cohort → over the catchment offer line.
+          No writing standard or eligibility bar is recorded for 2020, so there is no middle “met the bar”
+          step this year.</p>
           <div class="funnel">
             <div class="fstep">
-              <div class="bar" style="width:100%;background:var(--ink-3)">514</div>
-              <div class="txt"><b>Catchment candidates sat the test</b><span>From inside the 12.5-mile priority area, September 2020 intake (test sat in autumn 2019)</span></div>
+              <div class="bar" style="width:100%;background:var(--ink-3)">1,048</div>
+              <div class="txt"><b>Candidates sat the test (total)</b><span>All areas, September 2020 intake (test sat in autumn 2019) — everyone who attended, in and out of the catchment</span></div>
             </div>
             <div class="fstep"><div class="arrow" aria-hidden="true">↓</div></div>
             <div class="fstep">
-              <div class="bar" style="width:32%;background:var(--green-dark)">165</div>
+              <div class="bar" style="width:49%;background:var(--green)">514</div>
+              <div class="txt"><b>Catchment candidates sat the test</b><span>From inside the 12.5-mile priority area · 49.0% of everyone who sat the test</span></div>
+            </div>
+            <div class="fstep"><div class="arrow" aria-hidden="true">↓</div></div>
+            <div class="fstep">
+              <div class="bar" style="width:16%;background:var(--green-dark)">165</div>
               <div class="txt"><b>Cleared the offer line (catchment)</b><span>Scored above 105 · 32.1% of catchment candidates</span></div>
             </div>
           </div>
@@ -831,11 +864,16 @@
 
       <div class="year-panel" id="panel-2019" role="tabpanel" aria-labelledby="tab-2019" hidden>
 
-      <div class="kpis" role="list" aria-label="Headline figures, September 2019 intake, catchment area only">
+      <div class="kpis" role="list" aria-label="Headline figures, September 2019 intake">
+        <div class="kpi" role="listitem">
+          <div class="num">1,260</div>
+          <div class="label">Candidates sat the test</div>
+          <div class="sub">Total, all areas</div>
+        </div>
         <div class="kpi" role="listitem">
           <div class="num">559</div>
           <div class="label">Catchment candidates</div>
-          <div class="sub">Sat the test from inside the 12.5-mile area (of 1,260 in total)</div>
+          <div class="sub">Sat the test from inside the 12.5-mile area (44.4% of all candidates)</div>
         </div>
         <div class="kpi" role="listitem">
           <div class="num">—</div>
@@ -927,17 +965,23 @@
         </div>
 
         <div class="card">
-          <h3>The catchment funnel: from 559 candidates to 152 over the line</h3>
-          <p class="hint">Catchment area only. No writing standard or eligibility bar is recorded for 2019,
-          so there is no middle “met the bar” step this year — the funnel goes straight to the offer line.</p>
+          <h3>The funnel: from 1,260 who sat the test to 152 over the line</h3>
+          <p class="hint">Everyone who sat the test → the catchment cohort → over the catchment offer line.
+          No writing standard or eligibility bar is recorded for 2019, so there is no middle “met the bar”
+          step this year.</p>
           <div class="funnel">
             <div class="fstep">
-              <div class="bar" style="width:100%;background:var(--ink-3)">559</div>
-              <div class="txt"><b>Catchment candidates sat the test</b><span>From inside the 12.5-mile priority area, September 2019 intake (test sat in autumn 2018)</span></div>
+              <div class="bar" style="width:100%;background:var(--ink-3)">1,260</div>
+              <div class="txt"><b>Candidates sat the test (total)</b><span>All areas, September 2019 intake (test sat in autumn 2018) — everyone who attended, in and out of the catchment</span></div>
             </div>
             <div class="fstep"><div class="arrow" aria-hidden="true">↓</div></div>
             <div class="fstep">
-              <div class="bar" style="width:27%;background:var(--green-dark)">152</div>
+              <div class="bar" style="width:44%;background:var(--green)">559</div>
+              <div class="txt"><b>Catchment candidates sat the test</b><span>From inside the 12.5-mile priority area · 44.4% of everyone who sat the test</span></div>
+            </div>
+            <div class="fstep"><div class="arrow" aria-hidden="true">↓</div></div>
+            <div class="fstep">
+              <div class="bar" style="width:12%;background:var(--green-dark)">152</div>
               <div class="txt"><b>Cleared the offer line (catchment)</b><span>Scored above 105 · 27.2% of catchment candidates</span></div>
             </div>
           </div>
@@ -1011,10 +1055,11 @@
         <div class="sec-head">
           <h2 id="cmp-h">Samira's 2027 cohort, against the record</h2>
           <p>
-            The 2027 figures come from the school's results email, not a published score list — the full
-            anonymised results for Samira's cohort won't appear until spring 2027. The figures below are
-            catchment-only, set against the published years — one exception is labelled where it occurs:
-            the 476-eligible comparison, which is all-areas because no catchment split exists for 2027.
+            The 2027 figures come from the school's results email and its admission-test FAQs, not a
+            published score list — the full anonymised results for Samira's cohort won't appear until
+            spring 2027. The FAQs fix the 2027 totals: 1,119 candidates sat the test and 476 reached the
+            eligible score. The figures below are catchment-only where a catchment split exists; the 2027
+            totals are all-areas because no catchment split has been published for 2027.
           </p>
         </div>
 
@@ -1032,25 +1077,27 @@
             end was thinner, which is exactly why the line fell.</p>
           </div>
           <div class="fact">
-            <div class="big">476 eligible</div>
-            <p><strong>Samira's cohort looks bigger at the gate.</strong> The 2027 email counts 476 eligible
-            candidates — an all-areas figure, so it is compared like-for-like with the all-areas equivalents
-            in the published years (417 in 2025 and 443 in 2026, counting “Of the Standard” girls scoring 92+). If the measures match, her year is the most
-            competitive of the three at the eligibility stage; the email's exact definition may differ, so read
-            it as a signal, not a statistic.</p>
+            <div class="big">476 of 1,119 eligible</div>
+            <p><strong>Samira's cohort looks bigger at the gate.</strong> Of the 1,119 candidates who sat the
+            2027 test, the school's FAQs count 476 with an eligible score — an all-areas figure, so it is
+            compared like-for-like with the all-areas equivalents in the published years (417 in 2025 and
+            443 in 2026, counting “Of the Standard” girls scoring 92+). If the measures match, her year is
+            the most competitive of the three at the eligibility stage; the exact definition may differ, so
+            read it as a signal, not a statistic.</p>
           </div>
         </div>
 
         <div class="card">
-          <h3>The catchment cohorts side by side</h3>
-          <p class="hint">Catchment (priority-area) figures only. Published lists for 2019, 2020, 2025 and 2026; the school's results email for 2027.</p>
+          <h3>The cohorts side by side</h3>
+          <p class="hint">Published lists for 2019, 2020, 2025 and 2026; the school's results email and admission-test FAQs for 2027. Every column is a catchment (priority-area) figure except “Sat the test (total)”.</p>
           <table class="cmp">
             <thead>
-              <tr><th>Intake</th><th class="n">Catchment candidates</th><th class="n">Met standard + bar</th><th class="n">Catchment line</th><th class="n">Cleared the line</th></tr>
+              <tr><th>Intake</th><th class="n">Sat the test (total)</th><th class="n">Catchment candidates</th><th class="n">Met standard + bar</th><th class="n">Catchment line</th><th class="n">Cleared the line</th></tr>
             </thead>
             <tbody>
               <tr>
                 <td class="rowh">Sept 2019</td>
+                <td class="n" data-l="Sat the test (total)">1,260</td>
                 <td class="n" data-l="Catchment candidates">559</td>
                 <td class="n muted" data-l="Met standard + bar">not recorded</td>
                 <td class="n" data-l="Catchment line">105–106</td>
@@ -1058,6 +1105,7 @@
               </tr>
               <tr>
                 <td class="rowh">Sept 2020</td>
+                <td class="n" data-l="Sat the test (total)">1,048</td>
                 <td class="n" data-l="Catchment candidates">514</td>
                 <td class="n muted" data-l="Met standard + bar">not recorded</td>
                 <td class="n" data-l="Catchment line">105–106</td>
@@ -1065,6 +1113,7 @@
               </tr>
               <tr>
                 <td class="rowh">Sept 2025</td>
+                <td class="n" data-l="Sat the test (total)">1,225</td>
                 <td class="n" data-l="Catchment candidates">559</td>
                 <td class="n" data-l="Met standard + bar">306 (54.7%) · bar 92</td>
                 <td class="n" data-l="Catchment line">107–108</td>
@@ -1072,6 +1121,7 @@
               </tr>
               <tr>
                 <td class="rowh">Sept 2026</td>
+                <td class="n" data-l="Sat the test (total)">1,198</td>
                 <td class="n" data-l="Catchment candidates">543</td>
                 <td class="n" data-l="Met standard + bar">365 (67.2%) · bar 87</td>
                 <td class="n" data-l="Catchment line">106–107</td>
@@ -1079,6 +1129,7 @@
               </tr>
               <tr>
                 <td class="rowh">Sept 2027 · Samira</td>
+                <td class="n" data-l="Sat the test (total)">1,119</td>
                 <td class="n muted" data-l="Catchment candidates">not published</td>
                 <td class="n" data-l="Met standard + bar">476 eligible*</td>
                 <td class="n muted" data-l="Catchment line">known Mar 2027</td>
@@ -1087,7 +1138,8 @@
             </tbody>
           </table>
           <p class="legend-note">* From the CCHS results email of 12 October 2026 (Category 2, eligible at 92+; the
-          476 covers all areas — no catchment split has been published for 2027). “Cleared the line” applies each
+          476 covers all areas — no catchment split has been published for 2027) and the school's admission-test
+          FAQs (1,119 candidates sat the 2027 test in total). “Cleared the line” applies each
           year's catchment last-offered range to its published catchment scores — an academic reconstruction,
           not an offer count. The bar differs by year (92 in 2025, 87 in 2026), and the 2020 list records no
           creative-writing standard, so that column cannot be filled for 2020.</p>
@@ -1139,7 +1191,7 @@
           <div class="tstep">
             <div class="date">12 Oct 2026 · Done</div>
             <h4>Samira's result</h4>
-            <p>106.68, creativity “Of the Standard”, Category 2 (eligible at 92+). 476 candidates were eligible in her cohort; the school expects oversubscription.</p>
+            <p>106.68, creativity “Of the Standard”, Category 2 (eligible at 92+). Of the 1,119 candidates who sat the test, 476 were eligible in her cohort; the school expects oversubscription.</p>
           </div>
           <div class="tstep">
             <div class="date">By 31 Oct 2026</div>
@@ -1170,7 +1222,8 @@
           <a href="https://www.cchs.co.uk/wp-content/uploads/2025/03/Anonymised-Results.pdf">2025 Anonymised Results (PDF)</a> ·
           <a href="https://www.cchs.co.uk/wp-content/uploads/2026/03/2026-Anonymised-Scores.pdf">2026 Anonymised Scores (PDF)</a> ·
           last-offered score ranges via <a href="https://www.cchs.co.uk/admissions/foi-requests/">CCHS Admissions — FOI requests</a>.
-          Samira's result: CCHS admissions email, 12 October 2026.</p>
+          Samira's result: CCHS admissions email, 12 October 2026; 2027 totals (1,119 sat the test, 476 eligible):
+          <a href="https://www.cchs.co.uk/wp-content/uploads/2026/10/FAQs.pdf">CCHS Admission Test Results FAQs (PDF)</a>.</p>
         <p>Prepared for the Ganeev family · October 2026. Figures for the 2019, 2020, 2025 and 2026 intakes are historical and do not predict 2027 offers.</p>
       </footer>
     </div>
