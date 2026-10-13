@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>CCHS 2026 Scores — How the Thresholds Fell</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,650;6..72,800&family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+    <style>
+      :root{
+        --bg:#f4f6f2;
+        --surface:#ffffff;
+        --surface-2:#eef3ec;
+        --ink:#17251c;
+        --ink-2:#43564a;
+        --ink-3:#718276;
+        --line:#d9e2d8;
+        --green:#22763a;
+        --green-dark:#175c2b;
+        --green-soft:#dcefe0;
+        --blue:#1b62b8;
+        --blue-soft:#dde9f7;
+        --red:#c22f2f;
+        --red-soft:#fbe7e4;
+        --amber:#9a6a12;
+        --amber-soft:#f7ecd2;
+        --shadow:0 1px 2px rgba(23,37,28,.05),0 10px 30px -18px rgba(23,37,28,.25);
+        --radius:14px;
+      }
+      @media (prefers-color-scheme: dark){
+        :root{
+          --bg:#101613;
+          --surface:#182019;
+          --surface-2:#1e2a20;
+          --ink:#eef4ee;
+          --ink-2:#bccabe;
+          --ink-3:#8ba191;
+          --line:#2c3d30;
+          --green:#4cb96b;
+          --green-dark:#7fd093;
+          --green-soft:#223d29;
+          --blue:#6ea8e8;
+          --blue-soft:#22344d;
+          --red:#f0837d;
+          --red-soft:#472825;
+          --amber:#e5bc66;
+          --amber-soft:#3d3319;
+          --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 32px -18px rgba(0,0,0,.6);
+        }
+      }
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none!important;animation:none!important} }
+      body{
+        margin:0;background:var(--bg);color:var(--ink);
+        font-family:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+        font-size:16px;line-height:1.55;
+        -webkit-font-smoothing:antialiased;
+      }
+      .wrap{max-width:1080px;margin:0 auto;padding:0 20px 64px}
+      .mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+
+      /* ---------- header ---------- */
+      header{padding:44px 0 8px}
+      .school-line{
+        display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+        font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);
+      }
+      .school-line .dot{width:5px;height:5px;border-radius:50%;background:var(--green)}
+      h1{
+        font-family:"Newsreader",Georgia,serif;font-weight:800;
+        font-size:clamp(34px,5.4vw,54px);line-height:1.04;letter-spacing:-.01em;
+        margin:14px 0 14px;max-width:15ch;
+      }
+      h1 .thin{font-weight:500}
+      .lede{font-size:clamp(16px,2vw,18.5px);color:var(--ink-2);max-width:66ch;margin:0}
+      .lede strong{color:var(--ink)}
+      .samira-callout{
+        margin-top:22px;display:flex;gap:16px;align-items:flex-start;
+        background:var(--red-soft);border:1px solid color-mix(in srgb, var(--red) 32%, transparent);
+        border-radius:var(--radius);padding:16px 18px;max-width:760px;
+      }
+      .samira-callout .score{
+        font-family:"Newsreader",Georgia,serif;font-weight:800;font-size:38px;line-height:1;color:var(--red);white-space:nowrap;
+      }
+      .samira-callout p{margin:2px 0 0;font-size:14.5px;color:var(--ink)}
+      .samira-callout p b{color:var(--red)}
+
+      /* ---------- KPI strip ---------- */
+      .kpis{
+        display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:30px 0 8px;
+      }
+      .kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
+      .kpi .num{font-family:"Newsreader",Georgia,serif;font-weight:800;font-size:34px;line-height:1}
+      .kpi .num.green{color:var(--green)} .kpi .num.blue{color:var(--blue)}
+      .kpi .label{font-size:12.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--ink-2);margin-top:8px}
+      .kpi .sub{font-size:13px;color:var(--ink-3);margin-top:2px}
+      @media (max-width:760px){ .kpis{grid-template-columns:repeat(2,1fr)} }
+
+      /* ---------- sections ---------- */
+      section{margin-top:44px}
+      .sec-head{max-width:70ch}
+      .sec-head h2{font-family:"Newsreader",Georgia,serif;font-weight:800;font-size:clamp(24px,3.4vw,32px);line-height:1.12;margin:0 0 8px}
+      .sec-head p{margin:0;color:var(--ink-2);font-size:15.5px}
+      .card{
+        background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+        box-shadow:var(--shadow);padding:22px;margin-top:18px;
+      }
+      .card h3{margin:0 0 4px;font-size:16px;font-weight:800}
+      .card .hint{font-size:13.5px;color:var(--ink-3);margin:0 0 8px}
+
+      /* chart controls */
+      .controls{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+      .toggle{
+        appearance:none;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);
+        font:inherit;font-size:13.5px;font-weight:600;padding:7px 13px;border-radius:999px;cursor:pointer;
+        display:inline-flex;align-items:center;gap:8px;
+      }
+      .toggle .swatch{width:11px;height:11px;border-radius:3px;flex:none}
+      .toggle[aria-pressed="false"]{opacity:.45}
+      .toggle:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+      .chart-scroll{overflow-x:auto;padding-bottom:4px}
+      svg text{font-family:"Public Sans",system-ui,sans-serif}
+      .axis-label{font-size:11px;fill:var(--ink-3)}
+      .grid-line{stroke:var(--line);stroke-width:1}
+      .bar-p{fill:var(--green);opacity:.62}
+      .bar-o{fill:var(--blue);opacity:.78}
+      .bar-hit{fill:transparent;cursor:pointer}
+      .bar-hit:hover{fill:color-mix(in srgb, var(--ink) 7%, transparent)}
+      .thresh-p{stroke:var(--green);stroke-width:2;stroke-dasharray:6 4}
+      .thresh-o{stroke:var(--blue);stroke-width:2;stroke-dasharray:6 4}
+      .samira-line{stroke:var(--red);stroke-width:2.5}
+      .tooltip{
+        position:fixed;z-index:30;pointer-events:none;opacity:0;transform:translate(-50%,calc(-100% - 10px));
+        background:var(--ink);color:var(--bg);border-radius:10px;padding:9px 12px;font-size:13px;line-height:1.45;
+        box-shadow:0 8px 24px rgba(0,0,0,.25);transition:opacity .12s;max-width:250px;
+      }
+      .tooltip.show{opacity:1}
+      .tooltip b{font-size:14px}
+      .tooltip .row{display:flex;align-items:center;gap:7px}
+      .tooltip .sw{width:9px;height:9px;border-radius:2px;flex:none}
+      .legend-note{font-size:13px;color:var(--ink-3);margin-top:10px}
+
+      /* verdict bars */
+      .split-2{display:grid;grid-template-columns:1.25fr 1fr;gap:16px}
+      @media (max-width:820px){ .split-2{grid-template-columns:1fr} }
+      .verdict-row{display:flex;align-items:baseline;gap:12px;margin-top:18px}
+      .verdict-row:first-of-type{margin-top:10px}
+      .verdict-row .who{width:172px;flex:none;font-size:14px;font-weight:700}
+      .verdict-row .who span{display:block;font-weight:500;color:var(--ink-3);font-size:12.5px}
+      .verdict-track{flex:1;height:44px;background:var(--surface-2);border-radius:8px;position:relative;overflow:hidden}
+      .verdict-fill{position:absolute;inset:0 auto 0 0;border-radius:8px 0 0 8px}
+      .verdict-fill.p{background:var(--green)} .verdict-fill.o{background:var(--blue)}
+      .verdict-num{font-family:"Newsreader",Georgia,serif;font-weight:800;font-size:30px;width:64px;flex:none;text-align:right}
+      .verdict-num.p{color:var(--green)} .verdict-num.o{color:var(--blue)}
+      @media (max-width:560px){
+        .verdict-row{flex-wrap:wrap}
+        .verdict-row .who{width:100%}
+        .verdict-num{width:auto}
+      }
+      .donut-wrap{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+      .donut-legend{font-size:14px}
+      .donut-legend .li{display:flex;gap:9px;align-items:flex-start;margin-top:10px}
+      .donut-legend .sw{width:12px;height:12px;border-radius:3px;margin-top:4px;flex:none}
+      .donut-legend .li b{display:block;font-size:16px}
+      .donut-legend .li span{color:var(--ink-3);font-size:13px}
+
+      /* funnel */
+      .funnel{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+      .fstep{display:flex;gap:14px;align-items:center}
+      .fstep .bar{height:52px;border-radius:8px;display:flex;align-items:center;padding:0 16px;color:#fff;font-weight:800;font-size:19px;min-width:74px}
+      @media (prefers-color-scheme: dark){ .fstep .bar{color:#0d130e} }
+      .fstep .txt{font-size:14.5px}
+      .fstep .txt b{display:block;font-size:15px}
+      .fstep .txt span{color:var(--ink-3);font-size:13.5px}
+      .fstep .arrow{color:var(--ink-3);font-size:18px;margin-left:34px;line-height:0.4}
+      .note-strip{
+        margin-top:16px;background:var(--amber-soft);border:1px solid color-mix(in srgb, var(--amber) 30%, transparent);
+        border-radius:10px;padding:12px 15px;font-size:14px;
+      }
+      .note-strip b{color:var(--amber)}
+
+      /* zoom / number line */
+      .zoom-legend{display:flex;flex-wrap:wrap;gap:16px;font-size:13.5px;color:var(--ink-2);margin-top:12px}
+      .zoom-legend .li{display:flex;gap:8px;align-items:center}
+      .zoom-legend .sw{width:22px;height:0;border-top:3px solid;flex:none}
+      .zoom-legend .band{width:22px;height:12px;border-radius:3px;flex:none}
+      .fact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+      @media (max-width:760px){ .fact-grid{grid-template-columns:1fr} }
+      .fact{background:var(--surface-2);border-radius:10px;padding:14px 16px}
+      .fact .big{font-family:"Newsreader",Georgia,serif;font-weight:800;font-size:26px;line-height:1.1}
+      .fact p{margin:5px 0 0;font-size:13.5px;color:var(--ink-2)}
+
+      /* rates */
+      .rate-row{display:grid;grid-template-columns:190px 1fr 74px;gap:12px;align-items:center;margin-top:16px}
+      .rate-row .who{font-size:14px;font-weight:700}
+      .rate-row .who span{display:block;font-weight:500;font-size:12.5px;color:var(--ink-3)}
+      .rate-track{height:26px;background:var(--surface-2);border-radius:6px;overflow:hidden}
+      .rate-fill{height:100%}
+      .rate-val{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:17px;text-align:right}
+      @media (max-width:560px){ .rate-row{grid-template-columns:1fr 64px} .rate-track{grid-column:1/-1;order:3} }
+
+      /* timeline + caveats */
+      .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+      @media (max-width:760px){ .timeline{grid-template-columns:1fr} }
+      .tstep{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
+      .tstep .date{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:13px;color:var(--green-dark);text-transform:uppercase;letter-spacing:.03em}
+      .tstep h4{margin:6px 0 4px;font-size:16px}
+      .tstep p{margin:0;font-size:14px;color:var(--ink-2)}
+      .caveats{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow)}
+      .caveats h3{margin:0 0 10px;font-size:16px}
+      .caveats ul{margin:0;padding-left:20px;color:var(--ink-2);font-size:14.5px}
+      .caveats li{margin-top:7px}
+      .caveats li:first-child{margin-top:0}
+      .caveats strong{color:var(--ink)}
+
+      footer{margin-top:44px;border-top:1px solid var(--line);padding-top:18px;font-size:13.5px;color:var(--ink-3)}
+      footer a{color:var(--blue);font-weight:600}
+      footer p{margin:5px 0}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+
+      <header>
+        <div class="school-line">
+          <span>Chelmsford County High School for Girls</span><span class="dot"></span>
+          <span>Entrance test · September 2026 intake</span>
+        </div>
+        <h1>Where the <span class="thin">2026 offer line</span> actually fell</h1>
+        <p class="lede">
+          CCHS published the anonymised scores of all <strong>1,198 candidates</strong> for September 2026 entry,
+          and later confirmed the score ranges of the last girl offered a place. Putting the two together shows
+          exactly how many girls cleared the bar in each admissions category — and where a score of
+          <strong>106.68</strong> would have sat against last year's line.
+        </p>
+        <div class="samira-callout">
+          <div class="score">106.68</div>
+          <p>
+            <b>Samira's score</b> (September 2027 entry, Category 2 — eligible at 92+, one of 476 eligible candidates).
+            The family home, around 8 miles away, is <b>inside</b> the 12.5-mile priority area — the category whose
+            2026 offer line was 106–107. On last year's numbers, her score clears it. Thresholds move every year;
+            this page shows the evidence, not a promise.
+          </p>
+        </div>
+      </header>
+
+      <div class="kpis" role="list" aria-label="Headline figures">
+        <div class="kpi" role="listitem">
+          <div class="num">1,198</div>
+          <div class="label">Candidates</div>
+          <div class="sub">Sat the test for Sept 2026 entry</div>
+        </div>
+        <div class="kpi" role="listitem">
+          <div class="num">535</div>
+          <div class="label">“Of the Standard”</div>
+          <div class="sub">Met the creative-writing standard (44.7%)</div>
+        </div>
+        <div class="kpi" role="listitem">
+          <div class="num green">228</div>
+          <div class="label">Cleared the offer line</div>
+          <div class="sub">Score <em>and</em> writing standard combined</div>
+        </div>
+        <div class="kpi" role="listitem">
+          <div class="num" style="color:var(--red)">+0.68</div>
+          <div class="label">Samira vs the 106 line</div>
+          <div class="sub">Inside the 106–107 last-offered range</div>
+        </div>
+      </div>
+
+      <!-- ============ DISTRIBUTION ============ -->
+      <section aria-labelledby="dist-h">
+        <div class="sec-head">
+          <h2 id="dist-h">The score distribution</h2>
+          <p>
+            Every candidate who met the creative-writing standard (“Of the Standard”), grouped in two-point score
+            bands and split by home area — 410 girls inside the 12.5-mile priority area and 125 outside it.
+            The dashed lines mark the two offer thresholds; the red line is Samira's 106.68.
+            Hover or tap a band for the counts.
+          </p>
+        </div>
+        <div class="card">
+          <div class="controls" role="group" aria-label="Chart series toggles">
+            <button class="toggle" id="tg-p" aria-pressed="true"><span class="swatch" style="background:var(--green)"></span>Priority area (n = 410)</button>
+            <button class="toggle" id="tg-o" aria-pressed="true"><span class="swatch" style="background:var(--blue)"></span>Outside area (n = 125)</button>
+            <button class="toggle" id="tg-s" aria-pressed="true"><span class="swatch" style="background:var(--red);border-radius:50%"></span>Samira · 106.68</button>
+          </div>
+          <div class="chart-scroll">
+            <svg id="hist" viewBox="0 0 960 430" width="100%" style="min-width:640px" role="img"
+                 aria-label="Histogram of standardised scores for candidates who met the writing standard, split by priority and outside area, with offer thresholds at 106 and 118 and Samira's score at 106.68."></svg>
+          </div>
+          <p class="legend-note">
+            Bar heights are reconstructed in two-point bands from the published anonymised score list; the headline
+            counts elsewhere on this page (410, 125, 151, 77, 228) are exact. Only “Of the Standard” candidates are
+            plotted — a high score alone was never enough.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ WHO CLEARED ============ -->
+      <section aria-labelledby="clear-h">
+        <div class="sec-head">
+          <h2 id="clear-h">Who cleared the last-offered line?</h2>
+          <p>
+            CCHS confirmed the last girl offered a place scored <strong>106–107</strong> inside the priority area
+            (Policy 1.5 3a) and <strong>118–119</strong> outside it (Policy 1.5 3b). Applying those cut-offs to the
+            published scores — a score strictly above 106 in-area, at least 118 out-of-area, plus the writing
+            standard — gives:
+          </p>
+        </div>
+
+        <div class="split-2">
+          <div class="card" style="margin-top:18px">
+            <h3>Cleared both hurdles, by area</h3>
+            <p class="hint">Score above the area's last-offered range <em>and</em> creative writing “Of the Standard”.</p>
+            <div class="verdict-row">
+              <div class="who">Priority area <span>score &gt; 106 · Policy 1.5 3a</span></div>
+              <div class="verdict-track"><div class="verdict-fill p" style="width:100%"></div></div>
+              <div class="verdict-num p">151</div>
+            </div>
+            <div class="verdict-row">
+              <div class="who">Outside area <span>score ≥ 118 · Policy 1.5 3b</span></div>
+              <div class="verdict-track"><div class="verdict-fill o" style="width:51%"></div></div>
+              <div class="verdict-num o">77</div>
+            </div>
+            <div class="verdict-row" style="border-top:1px solid var(--line);padding-top:16px">
+              <div class="who">Total <span>across both categories</span></div>
+              <div class="verdict-track"><div class="verdict-fill" style="width:100%;background:var(--ink)"></div></div>
+              <div class="verdict-num">228</div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:18px">
+            <h3>Share of the 228</h3>
+            <p class="hint">Two-thirds of the girls over the line lived inside the priority area.</p>
+            <div class="donut-wrap">
+              <svg id="donut" viewBox="0 0 180 180" width="168" height="168" role="img"
+                   aria-label="Donut chart: 151 of 228 (66 percent) priority area, 77 of 228 (34 percent) outside area."></svg>
+              <div class="donut-legend">
+                <div class="li"><span class="sw" style="background:var(--green)"></span>
+                  <div><b>151 · 66%</b><span>Priority area (&gt; 106)</span></div></div>
+                <div class="li"><span class="sw" style="background:var(--blue)"></span>
+                  <div><b>77 · 34%</b><span>Outside area (≥ 118)</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>From 1,198 candidates to 228 over the line</h3>
+          <p class="hint">The writing standard is the bigger filter — it removes 663 girls, compared with 307 at the score line.</p>
+          <div class="funnel">
+            <div class="fstep">
+              <div class="bar" style="width:100%;background:var(--ink-3)">1,198</div>
+              <div class="txt"><b>Sat the entrance test</b><span>All candidates, September 2026 intake</span></div>
+            </div>
+            <div class="fstep"><div class="arrow" aria-hidden="true">↓</div></div>
+            <div class="fstep">
+              <div class="bar" style="width:56%;background:var(--green)">535</div>
+              <div class="txt"><b>Met the writing standard</b><span>410 priority + 125 outside · 44.7% of candidates</span></div>
+            </div>
+            <div class="fstep"><div class="arrow" aria-hidden="true">↓</div></div>
+            <div class="fstep">
+              <div class="bar" style="width:30%;background:var(--green-dark)">228</div>
+              <div class="txt"><b>Also above their area's offer line</b><span>151 priority + 77 outside · 19.0% of all candidates</span></div>
+            </div>
+          </div>
+          <div class="note-strip">
+            <b>The writing standard bites:</b> 3 girls outside the priority area scored 118 or higher but were
+            <em>not</em> “Of the Standard” in creative writing — so on score alone they looked safe, yet they do
+            not count among the 228.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Clearance rate among “Of the Standard” girls</h3>
+          <p class="hint">
+            The outside threshold is 12 points higher, yet a larger share of outside girls who passed the writing
+            standard also cleared it — the outside group that reaches the writing standard is smaller and stronger.
+          </p>
+          <div class="rate-row">
+            <div class="who">Priority area <span>151 of 410 over the line</span></div>
+            <div class="rate-track"><div class="rate-fill" style="width:36.8%;background:var(--green)"></div></div>
+            <div class="rate-val">36.8%</div>
+          </div>
+          <div class="rate-row">
+            <div class="who">Outside area <span>77 of 125 over the line</span></div>
+            <div class="rate-track"><div class="rate-fill" style="width:61.6%;background:var(--blue)"></div></div>
+            <div class="rate-val">61.6%</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ZOOM ============ -->
+      <section aria-labelledby="zoom-h">
+        <div class="sec-head">
+          <h2 id="zoom-h">Zoom: the borderline band, 104–110</h2>
+          <p>
+            Samira's 106.68 sits inside the very band where the 2026 priority-area offers ran out. This close-up
+            uses only the priority-area figures — the category that applies to her.
+          </p>
+        </div>
+        <div class="card">
+          <div class="chart-scroll">
+            <svg id="zoom" viewBox="0 0 960 300" width="100%" style="min-width:600px" role="img"
+                 aria-label="Number line from 104 to 110 showing the 106 threshold, the shaded 106 to 107 last-offered range, the lowest 2026 score offered at 106.05, and Samira's score at 106.68."></svg>
+          </div>
+          <div class="zoom-legend">
+            <div class="li"><span class="band" style="background:var(--amber-soft);border:1px solid var(--amber)"></span>Last-offered range 106–107 (2026, priority)</div>
+            <div class="li"><span class="sw" style="border-color:var(--green)"></span>Cut-off applied: score &gt; 106</div>
+            <div class="li"><span class="sw" style="border-color:var(--red)"></span>Samira: 106.68</div>
+          </div>
+          <div class="fact-grid">
+            <div class="fact">
+              <div class="big">106.05</div>
+              <p>Lowest score among the 151 priority-area girls who cleared the line in 2026 — the effective floor.</p>
+            </div>
+            <div class="fact">
+              <div class="big">10 girls</div>
+              <p>In the priority area scored within (106, 107] and met the writing standard — the crowded band Samira's score falls in.</p>
+            </div>
+            <div class="fact">
+              <div class="big">0.63 pts</div>
+              <p>Between Samira's 106.68 and that 106.05 floor. Comfortably over the line — but by less than a single mark.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ WHAT NEXT ============ -->
+      <section aria-labelledby="next-h">
+        <div class="sec-head">
+          <h2 id="next-h">What this does — and doesn't — decide</h2>
+          <p>
+            “Clearing the academic line” is not the same as receiving an offer. In 2026, 228 girls cleared it,
+            but many candidates never name CCHS on their application form at all, and places are allocated by the
+            admissions policy and preferences — not by this count alone.
+          </p>
+        </div>
+        <div class="timeline">
+          <div class="tstep">
+            <div class="date">12 Oct 2026 · Done</div>
+            <h4>Samira's result</h4>
+            <p>106.68, creativity “Of the Standard”, Category 2 (eligible at 92+). 476 candidates were eligible in her cohort; the school expects oversubscription.</p>
+          </div>
+          <div class="tstep">
+            <div class="date">By 31 Oct 2026</div>
+            <h4>Application deadline (CAF)</h4>
+            <p>The family's decision: CCHS goes first on the Common Application Form. Preference order matters — a first preference is considered first.</p>
+          </div>
+          <div class="tstep">
+            <div class="date">1 Mar 2027</div>
+            <h4>National Offer Day</h4>
+            <p>Essex County Council confirms places. Only then will the 2027 offer line — this year's equivalent of 106–107 — become known.</p>
+          </div>
+        </div>
+        <div class="caveats">
+          <h3>Read the numbers with these caveats</h3>
+          <ul>
+            <li><strong>Different year, different line.</strong> Every figure above describes the September <strong>2026</strong> intake. Samira is applying for September <strong>2027</strong>; the thresholds will move with that cohort's scores.</li>
+            <li><strong>“Passed” means academically over the line</strong> — score plus writing standard against the last-offered ranges CCHS disclosed. It is not a count of offers made.</li>
+            <li><strong>Area is decided by the school's own measurement</strong> of the home-to-school distance against the 12.5-mile priority boundary (Policy 1.5), not by a map estimate.</li>
+            <li><strong>The writing standard is a separate gate.</strong> A candidate needs both the score and “Of the Standard” in creative writing — as the 3 girls at 118+ who missed it show.</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer>
+        <p><strong>Sources.</strong> Analysis of the published anonymised results for the September 2026 intake (1,198 candidates):
+          <a href="https://www.cchs.co.uk/wp-content/uploads/2026/03/2026-Anonymised-Scores.pdf">2026 Anonymised Scores (PDF)</a> ·
+          last-offered score ranges via <a href="https://www.cchs.co.uk/admissions/foi-requests/">CCHS Admissions — FOI requests</a>.
+          Samira's result: CCHS admissions email, 12 October 2026.</p>
+        <p>Prepared for the Ganeev family · October 2026. Figures for the 2026 intake are historical and do not predict 2027 offers.</p>
+      </footer>
+    </div>
+
+    <div class="tooltip" id="tip" role="status"></div>
+
+    <script>
+      (function(){
+        "use strict";
+        var NS = "http://www.w3.org/2000/svg";
+        function el(tag, attrs, parent){
+          var n = document.createElementNS(NS, tag);
+          for (var k in attrs) n.setAttribute(k, attrs[k]);
+          if (parent) parent.appendChild(n);
+          return n;
+        }
+        function txt(parent, x, y, str, cls, anchor, weight, size, fill){
+          var t = el("text", {x:x, y:y, "text-anchor": anchor||"middle", "class": cls||""}, parent);
+          if (weight) t.setAttribute("font-weight", weight);
+          if (size) t.setAttribute("font-size", size);
+          if (fill) t.setAttribute("fill", fill);
+          t.textContent = str;
+          return t;
+        }
+        var css = getComputedStyle(document.documentElement);
+        function tok(name){ return css.getPropertyValue(name).trim(); }
+
+        /* ---------------- histogram ---------------- */
+        // Two-point bands starting at 76. Counts reconstructed from the published
+        // anonymised score list ("Of the Standard" candidates only).
+        var bands = [76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124,126,128,130,132,134];
+        var pri = [2,2,8,10,15,14,21,20,18,26,15,30,28,19,29,19,20,25,15,23,9,15,9,5,5,4,1,0,2,1];
+        var out = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,8,12,22,17,10,18,17,6,4,0,3,2];
+
+        var svg = document.getElementById("hist");
+        var W = 960, H = 430, mL = 44, mR = 14, mT = 46, mB = 44;
+        var plotW = W - mL - mR, plotH = H - mT - mB;
+        var x0 = 74, x1 = 137;
+        function X(v){ return mL + (v - x0) / (x1 - x0) * plotW; }
+        function Y(v){ return mT + plotH - v / 32 * plotH; }
+
+        // gridlines + y axis
+        [0,5,10,15,20,25,30].forEach(function(g){
+          el("line", {x1:mL, x2:W-mR, y1:Y(g), y2:Y(g), "class":"grid-line"}, svg);
+          txt(svg, mL-8, Y(g)+4, g, "axis-label", "end");
+        });
+        txt(svg, mL, 18, "Candidates per 2-point band", "axis-label", "start", 600, 11.5);
+        // x axis ticks
+        for (var v = 80; v <= 135; v += 5){
+          txt(svg, X(v), H - mB + 20, v, "axis-label", "middle");
+          el("line", {x1:X(v), x2:X(v), y1:H-mB, y2:H-mB+5, "class":"grid-line"}, svg);
+        }
+        txt(svg, mL + plotW/2, H - 6, "Total standardised score", "axis-label", "middle", null, 12);
+
+        var gP = el("g", {}, svg), gO = el("g", {}, svg), gHit = el("g", {}, svg);
+        var bw = (X(78) - X(76)) - 1.5;
+        bands.forEach(function(b, i){
+          if (pri[i] > 0){
+            el("rect", {x:X(b)+0.75, y:Y(pri[i]), width:bw, height:Y(0)-Y(pri[i]), rx:1.5, "class":"bar-p"}, gP);
+          }
+          if (out[i] > 0){
+            el("rect", {x:X(b)+0.75, y:Y(out[i]), width:bw, height:Y(0)-Y(out[i]), rx:1.5, "class":"bar-o"}, gO);
+          }
+          var hit = el("rect", {x:X(b), y:mT, width:X(b+2)-X(b), height:plotH, "class":"bar-hit",
+                                  "data-i": i, tabindex:"0", role:"button",
+                                  "aria-label":"Scores " + b + " to " + (b+2) + ": priority " + pri[i] + ", outside " + out[i]}, gHit);
+          hit.addEventListener("mouseenter", function(e){ showTip(e, i); });
+          hit.addEventListener("mousemove", moveTip);
+          hit.addEventListener("mouseleave", hideTip);
+          hit.addEventListener("focus", function(){ var r = hit.getBoundingClientRect(); showTipAt(r.left + r.width/2, r.top, i); });
+          hit.addEventListener("blur", hideTip);
+          hit.addEventListener("click", function(e){ showTip(e, i); });
+        });
+
+        // threshold lines + labels
+        var gT = el("g", {}, svg);
+        el("line", {x1:X(106), x2:X(106), y1:mT-6, y2:H-mB, "class":"thresh-p"}, gT);
+        txt(gT, X(106)-6, mT-24, "Priority cut-off", "axis-label", "end", 700, 12, tok("--green"));
+        txt(gT, X(106)-6, mT-10, "> 106", "axis-label", "end", 600, 12, tok("--green"));
+        el("line", {x1:X(118), x2:X(118), y1:mT-6, y2:H-mB, "class":"thresh-o"}, gT);
+        txt(gT, X(118)+6, mT-24, "Outside cut-off", "axis-label", "start", 700, 12, tok("--blue"));
+        txt(gT, X(118)+6, mT-10, "≥ 118", "axis-label", "start", 600, 12, tok("--blue"));
+
+        // Samira marker
+        var gS = el("g", {}, svg);
+        el("line", {x1:X(106.68), x2:X(106.68), y1:mT-6, y2:H-mB, "class":"samira-line"}, gS);
+        var badge = el("g", {}, gS);
+        var bx = X(106.68) + 8, by = mT + 66;
+        var br = el("rect", {x:bx, y:by-17, width:158, height:26, rx:13, fill:tok("--red")}, badge);
+        txt(badge, bx + 79, by + 1, "Samira · 106.68", "", "middle", 700, 13, "#ffffff");
+        el("line", {x1:X(106.68)+1, x2:bx, y1:by-4, y2:by-4, stroke:tok("--red"), "stroke-width":1.5}, badge);
+
+        // tooltip
+        var tip = document.getElementById("tip");
+        function tipHTML(i){
+          return "<b>Score " + bands[i] + "–" + (bands[i]+2) + "</b>" +
+            "<div class='row'><span class='sw' style='background:#4cb96b'></span>Priority area: <b>" + pri[i] + "</b></div>" +
+            "<div class='row'><span class='sw' style='background:#6ea8e8'></span>Outside area: <b>" + out[i] + "</b></div>";
+        }
+        function showTip(e, i){ tip.innerHTML = tipHTML(i); moveTip(e); tip.classList.add("show"); }
+        function showTipAt(x, y, i){ tip.innerHTML = tipHTML(i); tip.style.left = x + "px"; tip.style.top = y + "px"; tip.classList.add("show"); }
+        function moveTip(e){ tip.style.left = e.clientX + "px"; tip.style.top = e.clientY + "px"; }
+        function hideTip(){ tip.classList.remove("show"); }
+
+        // toggles
+        function wireToggle(id, target){
+          var btn = document.getElementById(id);
+          btn.addEventListener("click", function(){
+            var on = btn.getAttribute("aria-pressed") !== "true";
+            btn.setAttribute("aria-pressed", on ? "true" : "false");
+            target.style.display = on ? "" : "none";
+          });
+        }
+        wireToggle("tg-p", gP);
+        wireToggle("tg-o", gO);
+        wireToggle("tg-s", gS);
+
+        /* ---------------- donut ---------------- */
+        var donut = document.getElementById("donut");
+        var cx = 90, cy = 90, r = 66, sw2 = 26;
+        function arcPath(fracStart, frac){
+          var a0 = -Math.PI/2 + fracStart * Math.PI * 2;
+          var a1 = a0 + frac * Math.PI * 2;
+          var large = frac > 0.5 ? 1 : 0;
+          return "M " + (cx + r*Math.cos(a0)) + " " + (cy + r*Math.sin(a0)) +
+                 " A " + r + " " + r + " 0 " + large + " 1 " + (cx + r*Math.cos(a1)) + " " + (cy + r*Math.sin(a1));
+        }
+        el("circle", {cx:cx, cy:cy, r:r, fill:"none", stroke:tok("--surface-2"), "stroke-width":sw2}, donut);
+        el("path", {d:arcPath(0, 151/228), fill:"none", stroke:tok("--green"), "stroke-width":sw2}, donut);
+        el("path", {d:arcPath(151/228, 77/228), fill:"none", stroke:tok("--blue"), "stroke-width":sw2}, donut);
+        txt(donut, cx, cy - 4, "228", "", "middle", 800, 34, tok("--ink")).setAttribute("font-family", "'Newsreader', Georgia, serif");
+        txt(donut, cx, cy + 20, "girls over the line", "axis-label", "middle", null, 11.5);
+
+        /* ---------------- zoom number line ---------------- */
+        var z = document.getElementById("zoom");
+        var zW = 960, zmL = 30, zmR = 30, zAxisY = 168, zTop = 30;
+        var zx0 = 104, zx1 = 110;
+        function ZX(v){ return zmL + (v - zx0) / (zx1 - zx0) * (zW - zmL - zmR); }
+        // last-offered band
+        el("rect", {x:ZX(106), y:zTop + 26, width:ZX(107)-ZX(106), height:zAxisY - zTop - 26, rx:8,
+                    fill:tok("--amber-soft"), stroke:tok("--amber"), "stroke-dasharray":"5 4"}, z);
+        txt(z, (ZX(106)+ZX(107))/2, zTop + 14, "LAST-OFFERED RANGE · 2026 PRIORITY", "axis-label", "middle", 700, 12, tok("--amber"));
+        // axis
+        el("line", {x1:zmL, x2:zW-zmR, y1:zAxisY, y2:zAxisY, stroke:tok("--ink-3"), "stroke-width":1.5}, z);
+        for (var zv = 104; zv <= 110; zv++){
+          el("line", {x1:ZX(zv), x2:ZX(zv), y1:zAxisY, y2:zAxisY+7, stroke:tok("--ink-3"), "stroke-width":1.5}, z);
+          txt(z, ZX(zv), zAxisY + 26, zv, "axis-label", "middle", 600, 13);
+        }
+        txt(z, zmL + (zW-zmL-zmR)/2, zAxisY + 52, "Total standardised score", "axis-label", "middle", null, 12);
+        // threshold marker
+        el("line", {x1:ZX(106), x2:ZX(106), y1:zTop+34, y2:zAxisY, "class":"thresh-p"}, z);
+        txt(z, ZX(106) - 10, zAxisY + 78, "Cut-off applied: score > 106", "", "end", 700, 13.5, tok("--green"));
+        // lowest offered dot
+        el("circle", {cx:ZX(106.05), cy:zAxisY, r:7, fill:tok("--surface"), stroke:tok("--green"), "stroke-width":3}, z);
+        txt(z, ZX(106.05), zAxisY - 46, "106.05", "", "middle", 700, 15, tok("--green"));
+        txt(z, ZX(106.05), zAxisY - 28, "lowest of the 151", "axis-label", "middle", null, 11.5);
+        // Samira marker
+        el("line", {x1:ZX(106.68), x2:ZX(106.68), y1:zTop+34, y2:zAxisY, "class":"samira-line"}, z);
+        el("circle", {cx:ZX(106.68), cy:zAxisY, r:8, fill:tok("--red"), stroke:tok("--surface"), "stroke-width":2.5}, z);
+        txt(z, ZX(106.68) + 66, zAxisY - 46, "Samira · 106.68", "", "middle", 800, 16, tok("--red"));
+        txt(z, ZX(106.68) + 66, zAxisY - 28, "inside the last-offered range", "axis-label", "middle", null, 11.5);
+        // outside threshold pointer
+        txt(z, zW - zmR, zAxisY + 78, "Outside-area cut-off (≥ 118) lies far off this scale →", "", "end", 600, 13, tok("--blue"));
+      })();
+    </script>
+  </body>
+</html>
