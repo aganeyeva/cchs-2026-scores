@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="light dark" />
     <link rel="icon" href="data:," />
-    <title>CCHS 2026 Scores — How the Thresholds Fell</title>
+    <title>CCHS Scores 2025–2027 — How the Offer Lines Fell</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,650;6..72,800&family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
@@ -217,6 +217,41 @@
       .caveats li:first-child{margin-top:0}
       .caveats strong{color:var(--ink)}
 
+      /* year tabs */
+      .tabs{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 2px}
+      .tab{
+        appearance:none;font:inherit;font-size:15px;font-weight:700;cursor:pointer;
+        padding:11px 22px;border-radius:999px;border:1px solid var(--line);
+        background:var(--surface);color:var(--ink-2);box-shadow:var(--shadow);
+      }
+      .tab small{display:block;font-size:12px;font-weight:600;color:inherit;opacity:.75;letter-spacing:.02em}
+      .tab[aria-selected="true"]{background:var(--green);border-color:var(--green);color:#fff}
+      @media (prefers-color-scheme: dark){ .tab[aria-selected="true"]{color:#0d130e} }
+      .tab:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+      .year-panel[hidden]{display:none}
+
+      /* comparison tables */
+      .cmp{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:6px}
+      .cmp th,.cmp td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+      .cmp thead th{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);border-bottom:2px solid var(--line)}
+      .cmp tbody tr:last-child td{border-bottom:none}
+      .cmp td.n,.cmp th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+      .cmp .rowh{font-weight:800;white-space:nowrap}
+      .cmp .muted{color:var(--ink-3)}
+      .v-yes{color:var(--green);font-weight:700}
+      .v-in{color:var(--amber);font-weight:700}
+      .v-no{color:var(--red);font-weight:700}
+      @media (max-width:680px){
+        .cmp thead{display:none}
+        .cmp,.cmp tbody,.cmp tr,.cmp td{display:block;width:100%}
+        .cmp tr{padding:10px 0;border-bottom:1px solid var(--line)}
+        .cmp tbody tr:last-child{border-bottom:none}
+        .cmp td{border-bottom:none;padding:3px 0;display:flex;justify-content:space-between;gap:16px}
+        .cmp td::before{content:attr(data-l);font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}
+        .cmp td.rowh{font-size:16px}
+        .cmp td.rowh::before{display:none}
+      }
+
       footer{margin-top:44px;border-top:1px solid var(--line);padding-top:18px;font-size:13.5px;color:var(--ink-3)}
       footer a{color:var(--blue);font-weight:600}
       footer p{margin:5px 0}
@@ -228,25 +263,33 @@
       <header>
         <div class="school-line">
           <span>Chelmsford County High School for Girls</span><span class="dot"></span>
-          <span>Entrance test · September 2026 intake</span>
+          <span>Entrance test · September intakes 2025–2027</span>
         </div>
-        <h1>Where the <span class="thin">2026 offer line</span> actually fell</h1>
+        <h1>Where the offer line fell, <span class="thin">two years running</span></h1>
         <p class="lede">
-          CCHS published the anonymised scores of all <strong>1,198 candidates</strong> for September 2026 entry,
-          and later confirmed the score ranges of the last girl offered a place. Putting the two together shows
-          exactly how many girls cleared the bar in each admissions category — and where a score of
-          <strong>106.68</strong> would have sat against last year's line.
+          CCHS has published the anonymised scores for two intakes — <strong>1,225 candidates</strong> for
+          September 2025 and <strong>1,198</strong> for September 2026 — together with the score ranges of the
+          last girl offered a place in each year. The two lines moved in <strong>opposite directions</strong>,
+          and Samira's <strong>106.68</strong> (September 2027 entry) clears one year's line and misses the
+          other. Switch years with the tabs below; the final section compares all three cohorts.
         </p>
         <div class="samira-callout">
           <div class="score">106.68</div>
           <p>
             <b>Samira's score</b> (September 2027 entry, Category 2 — eligible at 92+, one of 476 eligible candidates).
             The family home, around 8 miles away, is <b>inside</b> the 12.5-mile priority area — the category whose
-            2026 offer line was 106–107. On last year's numbers, her score clears it. Thresholds move every year;
-            this page shows the evidence, not a promise.
+            offer line was 107–108 in 2025 and 106–107 in 2026. Her score clears the 2026 line and falls short of
+            the 2025 one. Thresholds move every year; this page shows the evidence, not a promise.
           </p>
         </div>
       </header>
+
+      <div class="tabs" role="tablist" aria-label="Choose an intake year">
+        <button class="tab" role="tab" id="tab-2026" aria-selected="true" aria-controls="panel-2026" data-panel="panel-2026">September 2026 intake<small>Last-offered: 106–107 in-area · 118–119 outside</small></button>
+        <button class="tab" role="tab" id="tab-2025" aria-selected="false" aria-controls="panel-2025" data-panel="panel-2025">September 2025 intake<small>Last-offered: 107–108 in-area · 116–117 outside</small></button>
+      </div>
+
+      <div class="year-panel" id="panel-2026" role="tabpanel" aria-labelledby="tab-2026">
 
       <div class="kpis" role="list" aria-label="Headline figures">
         <div class="kpi" role="listitem">
@@ -429,15 +472,305 @@
           </div>
         </div>
       </section>
+      </div><!-- /panel-2026 -->
+
+      <div class="year-panel" id="panel-2025" role="tabpanel" aria-labelledby="tab-2025" hidden>
+
+      <div class="kpis" role="list" aria-label="Headline figures, September 2025 intake">
+        <div class="kpi" role="listitem">
+          <div class="num">1,225</div>
+          <div class="label">Candidates</div>
+          <div class="sub">Sat the test for Sept 2025 entry</div>
+        </div>
+        <div class="kpi" role="listitem">
+          <div class="num">490</div>
+          <div class="label">“Of the Standard”</div>
+          <div class="sub">Met the creative-writing standard (40.0%)</div>
+        </div>
+        <div class="kpi" role="listitem">
+          <div class="num green">244</div>
+          <div class="label">Cleared the offer line</div>
+          <div class="sub">Score <em>and</em> writing standard combined</div>
+        </div>
+        <div class="kpi" role="listitem">
+          <div class="num" style="color:var(--red)">−0.32</div>
+          <div class="label">Samira vs the 107 line</div>
+          <div class="sub">Below the 2025 last-offered range (107–108)</div>
+        </div>
+      </div>
+
+      <!-- ============ DISTRIBUTION 2025 ============ -->
+      <section aria-labelledby="dist-h25">
+        <div class="sec-head">
+          <h2 id="dist-h25">The score distribution</h2>
+          <p>
+            Every candidate who met the creative-writing standard (“Of the Standard”), grouped in two-point score
+            bands and split by home area — 379 girls inside the 12.5-mile priority area and 111 outside it.
+            The dashed lines mark the two offer thresholds; the red line is Samira's 106.68, which in 2025 fell
+            just short of the priority cut-off. Hover or tap a band for the counts.
+          </p>
+        </div>
+        <div class="card">
+          <div class="controls" role="group" aria-label="Chart series toggles, 2025">
+            <button class="toggle" id="tg-p25" aria-pressed="true"><span class="swatch" style="background:var(--green)"></span>Priority area (n = 379)</button>
+            <button class="toggle" id="tg-o25" aria-pressed="true"><span class="swatch" style="background:var(--blue)"></span>Outside area (n = 111)</button>
+            <button class="toggle" id="tg-s25" aria-pressed="true"><span class="swatch" style="background:var(--red);border-radius:50%"></span>Samira · 106.68</button>
+          </div>
+          <div class="chart-scroll">
+            <svg id="hist25" viewBox="0 0 960 430" width="100%" style="min-width:640px" role="img"
+                 aria-label="Histogram of standardised scores for 2025 candidates who met the writing standard, split by priority and outside area, with offer thresholds at 107 and 116 and Samira's score at 106.68."></svg>
+          </div>
+          <p class="legend-note">
+            Bar heights are reconstructed in two-point bands from the published anonymised score list; the headline
+            counts elsewhere on this page (379, 111, 148, 96, 244) are exact. Only “Of the Standard” candidates are
+            plotted — a high score alone was never enough.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ WHO CLEARED 2025 ============ -->
+      <section aria-labelledby="clear-h25">
+        <div class="sec-head">
+          <h2 id="clear-h25">Who cleared the last-offered line?</h2>
+          <p>
+            For September 2025 entry, CCHS confirmed the last girl offered a place scored <strong>107–108</strong>
+            inside the priority area (Policy 1.5 3a) and <strong>116–117</strong> outside it (Policy 1.5 3b).
+            Applying those cut-offs to the published scores — a score strictly above 107 in-area, at least 116
+            out-of-area, plus the writing standard — gives:
+          </p>
+        </div>
+
+        <div class="split-2">
+          <div class="card" style="margin-top:18px">
+            <h3>Cleared both hurdles, by area</h3>
+            <p class="hint">Score above the area's last-offered range <em>and</em> creative writing “Of the Standard”.</p>
+            <div class="verdict-row">
+              <div class="who">Priority area <span>score &gt; 107 · Policy 1.5 3a</span></div>
+              <div class="verdict-track"><div class="verdict-fill p" style="width:100%"></div></div>
+              <div class="verdict-num p">148</div>
+            </div>
+            <div class="verdict-row">
+              <div class="who">Outside area <span>score ≥ 116 · Policy 1.5 3b</span></div>
+              <div class="verdict-track"><div class="verdict-fill o" style="width:65%"></div></div>
+              <div class="verdict-num o">96</div>
+            </div>
+            <div class="verdict-row" style="border-top:1px solid var(--line);padding-top:16px">
+              <div class="who">Total <span>across both categories</span></div>
+              <div class="verdict-track"><div class="verdict-fill" style="width:100%;background:var(--ink)"></div></div>
+              <div class="verdict-num">244</div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:18px">
+            <h3>Share of the 244</h3>
+            <p class="hint">Three in five of the girls over the 2025 line lived inside the priority area.</p>
+            <div class="donut-wrap">
+              <svg id="donut25" viewBox="0 0 180 180" width="168" height="168" role="img"
+                   aria-label="Donut chart: 148 of 244 (61 percent) priority area, 96 of 244 (39 percent) outside area."></svg>
+              <div class="donut-legend">
+                <div class="li"><span class="sw" style="background:var(--green)"></span>
+                  <div><b>148 · 61%</b><span>Priority area (&gt; 107)</span></div></div>
+                <div class="li"><span class="sw" style="background:var(--blue)"></span>
+                  <div><b>96 · 39%</b><span>Outside area (≥ 116)</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>From 1,225 candidates to 244 over the line</h3>
+          <p class="hint">The writing standard is the bigger filter — it removes 735 girls, compared with 246 at the score line.</p>
+          <div class="funnel">
+            <div class="fstep">
+              <div class="bar" style="width:100%;background:var(--ink-3)">1,225</div>
+              <div class="txt"><b>Sat the entrance test</b><span>All candidates, September 2025 intake</span></div>
+            </div>
+            <div class="fstep"><div class="arrow" aria-hidden="true">↓</div></div>
+            <div class="fstep">
+              <div class="bar" style="width:48%;background:var(--green)">490</div>
+              <div class="txt"><b>Met the writing standard</b><span>379 priority + 111 outside · 40.0% of candidates</span></div>
+            </div>
+            <div class="fstep"><div class="arrow" aria-hidden="true">↓</div></div>
+            <div class="fstep">
+              <div class="bar" style="width:27%;background:var(--green-dark)">244</div>
+              <div class="txt"><b>Also above their area's offer line</b><span>148 priority + 96 outside · 19.9% of all candidates</span></div>
+            </div>
+          </div>
+          <div class="note-strip">
+            <b>The writing standard bites:</b> 7 girls outside the priority area scored 116 or higher but were
+            marked <em>“Not of the Standard”</em> in creative writing — so on score alone they looked safe, yet
+            they do not count among the 244.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Clearance rate among “Of the Standard” girls</h3>
+          <p class="hint">
+            In 2025 the outside threshold sat only 9 points above the priority one, and the smaller outside group
+            that reached the writing standard cleared it at more than double the priority rate. In 2026 the
+            outside line jumped two points and that rate collapsed — see the comparison below.
+          </p>
+          <div class="rate-row">
+            <div class="who">Priority area <span>148 of 379 over the line</span></div>
+            <div class="rate-track"><div class="rate-fill" style="width:39.1%;background:var(--green)"></div></div>
+            <div class="rate-val">39.1%</div>
+          </div>
+          <div class="rate-row">
+            <div class="who">Outside area <span>96 of 111 over the line</span></div>
+            <div class="rate-track"><div class="rate-fill" style="width:86.5%;background:var(--blue)"></div></div>
+            <div class="rate-val">86.5%</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ZOOM 2025 ============ -->
+      <section aria-labelledby="zoom-h25">
+        <div class="sec-head">
+          <h2 id="zoom-h25">Zoom: the borderline band, 105–111</h2>
+          <p>
+            The 2025 priority line ran a point higher than 2026's, and Samira's 106.68 falls just short of it.
+            This is the same score, one year earlier — and a different answer.
+          </p>
+        </div>
+        <div class="card">
+          <div class="chart-scroll">
+            <svg id="zoom25" viewBox="0 0 960 300" width="100%" style="min-width:600px" role="img"
+                 aria-label="Number line from 105 to 111 showing the 107 threshold, the shaded 107 to 108 last-offered range, the lowest 2025 score offered at 107.05, and Samira's score at 106.68 just below the threshold."></svg>
+          </div>
+          <div class="zoom-legend">
+            <div class="li"><span class="band" style="background:var(--amber-soft);border:1px solid var(--amber)"></span>Last-offered range 107–108 (2025, priority)</div>
+            <div class="li"><span class="sw" style="border-color:var(--green)"></span>Cut-off applied: score &gt; 107</div>
+            <div class="li"><span class="sw" style="border-color:var(--red)"></span>Samira: 106.68</div>
+          </div>
+          <div class="fact-grid">
+            <div class="fact">
+              <div class="big">107.05</div>
+              <p>Lowest score among the 148 priority-area girls who cleared the line in 2025 — the effective floor.</p>
+            </div>
+            <div class="fact">
+              <div class="big">10 girls</div>
+              <p>In the priority area scored within (107, 108] and met the writing standard — the crowded band just above Samira's score.</p>
+            </div>
+            <div class="fact">
+              <div class="big">0.32 pts</div>
+              <p>Between Samira's 106.68 and the 107 cut-off. The score that cleared 2026's line would have fallen short of 2025's.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      </div><!-- /panel-2025 -->
+
+      <!-- ============ COMPARISON: 2027 vs THE RECORD ============ -->
+      <section aria-labelledby="cmp-h">
+        <div class="sec-head">
+          <h2 id="cmp-h">Samira's 2027 cohort, against the record</h2>
+          <p>
+            The 2027 figures come from the school's results email, not a published score list — the full
+            anonymised results for Samira's cohort won't appear until spring 2027. Set against the two published
+            years, the picture is mixed, and three discrepancies matter.
+          </p>
+        </div>
+
+        <div class="fact-grid">
+          <div class="fact">
+            <div class="big">−1 pt vs +2 pts</div>
+            <p><strong>The lines moved in opposite directions.</strong> From 2025 to 2026 the priority last-offered
+            range eased a point (107–108 → 106–107) while the outside range tightened two points
+            (116–117 → 118–119). There is no single “CCHS line” — the two categories drift independently.</p>
+          </div>
+          <div class="fact">
+            <div class="big">96 → 77</div>
+            <p><strong>Outside clearances fell as the standard rose.</strong> More outside girls met the writing
+            standard in 2026 (125, up from 111), yet fewer cleared the line — the clearance rate dropped from
+            86.5% to 61.6%. The two-point rise in the outside line did all of that.</p>
+          </div>
+          <div class="fact">
+            <div class="big">476 eligible</div>
+            <p><strong>Samira's cohort looks bigger at the gate.</strong> The 2027 email counts 476 eligible
+            candidates — more than the closest equivalent in either published year (417 in 2025 and 443 in 2026,
+            counting “Of the Standard” girls scoring 92+). If the measures match, her year is the most
+            competitive of the three at the eligibility stage; the email's exact definition may differ, so read
+            it as a signal, not a statistic.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>The three cohorts side by side</h3>
+          <p class="hint">Published figures for 2025 and 2026; the school's results email for 2027.</p>
+          <table class="cmp">
+            <thead>
+              <tr><th>Intake</th><th class="n">Candidates</th><th class="n">Met the standard</th><th class="n">Priority line</th><th class="n">Outside line</th><th class="n">Over the line</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="rowh">Sept 2025</td>
+                <td class="n" data-l="Candidates">1,225</td>
+                <td class="n" data-l="Met the standard">490 (40.0%)</td>
+                <td class="n" data-l="Priority line">107–108</td>
+                <td class="n" data-l="Outside line">116–117</td>
+                <td class="n" data-l="Over the line">244</td>
+              </tr>
+              <tr>
+                <td class="rowh">Sept 2026</td>
+                <td class="n" data-l="Candidates">1,198</td>
+                <td class="n" data-l="Met the standard">535 (44.7%)</td>
+                <td class="n" data-l="Priority line">106–107</td>
+                <td class="n" data-l="Outside line">118–119</td>
+                <td class="n" data-l="Over the line">228</td>
+              </tr>
+              <tr>
+                <td class="rowh">Sept 2027 · Samira</td>
+                <td class="n muted" data-l="Candidates">not published</td>
+                <td class="n" data-l="Met the standard">476 eligible*</td>
+                <td class="n muted" data-l="Priority line">known Mar 2027</td>
+                <td class="n muted" data-l="Outside line">known Mar 2027</td>
+                <td class="n muted" data-l="Over the line">—</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="legend-note">* From the CCHS results email of 12 October 2026 (Category 2, eligible at 92+).
+          “Over the line” applies each year's last-offered ranges to its published scores — an academic
+          reconstruction, not an offer count.</p>
+        </div>
+
+        <div class="card">
+          <h3>Would 106.68 have cleared the priority line?</h3>
+          <p class="hint">
+            The last-offered ranges CCHS has disclosed for every recent intake, tested against Samira's score.
+            “Inside the range” means her score falls within the band the last offered girl scored in — the exact
+            cut inside a range is never published, so those years are genuinely borderline.
+          </p>
+          <table class="cmp">
+            <thead>
+              <tr><th>Intake</th><th class="n">Priority last-offered range</th><th>106.68 against it</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="rowh">Sept 2020</td><td class="n" data-l="Range">105–106</td><td data-l="Verdict"><span class="v-yes">Clears it</span> — above the range</td></tr>
+              <tr><td class="rowh">Sept 2021</td><td class="n" data-l="Range">106–107</td><td data-l="Verdict"><span class="v-in">Borderline</span> — inside the range</td></tr>
+              <tr><td class="rowh">Sept 2022</td><td class="n" data-l="Range">104–105</td><td data-l="Verdict"><span class="v-yes">Clears it</span> — above the range</td></tr>
+              <tr><td class="rowh">Sept 2023</td><td class="n" data-l="Range">107–108</td><td data-l="Verdict"><span class="v-no">Falls short</span> — below the range</td></tr>
+              <tr><td class="rowh">Sept 2024</td><td class="n" data-l="Range">108–109</td><td data-l="Verdict"><span class="v-no">Falls short</span> — below the range</td></tr>
+              <tr><td class="rowh">Sept 2025</td><td class="n" data-l="Range">107–108</td><td data-l="Verdict"><span class="v-no">Falls short</span> — below the range</td></tr>
+              <tr><td class="rowh">Sept 2026</td><td class="n" data-l="Range">106–107</td><td data-l="Verdict"><span class="v-in">Borderline</span> — inside the range</td></tr>
+              <tr><td class="rowh">Sept 2027</td><td class="n muted" data-l="Range">not yet known</td><td data-l="Verdict"><span class="muted">Revealed after Offer Day, 1 Mar 2027</span></td></tr>
+            </tbody>
+          </table>
+          <p class="legend-note">
+            Across the seven published years, the same score would have cleared the priority line outright twice,
+            sat inside the last-offered range twice, and fallen short three times. Year-to-year movement of a
+            point or two — not the score itself — is what decides it.
+          </p>
+        </div>
+      </section>
 
       <!-- ============ WHAT NEXT ============ -->
       <section aria-labelledby="next-h">
         <div class="sec-head">
           <h2 id="next-h">What this does — and doesn't — decide</h2>
           <p>
-            “Clearing the academic line” is not the same as receiving an offer. In 2026, 228 girls cleared it,
-            but many candidates never name CCHS on their application form at all, and places are allocated by the
-            admissions policy and preferences — not by this count alone.
+            “Clearing the academic line” is not the same as receiving an offer. In 2025, 244 girls cleared it
+            and in 2026, 228 — but many candidates never name CCHS on their application form at all, and places
+            are allocated by the admissions policy and preferences — not by this count alone.
           </p>
         </div>
         <div class="timeline">
@@ -460,7 +793,7 @@
         <div class="caveats">
           <h3>Read the numbers with these caveats</h3>
           <ul>
-            <li><strong>Different year, different line.</strong> Every figure above describes the September <strong>2026</strong> intake. Samira is applying for September <strong>2027</strong>; the thresholds will move with that cohort's scores.</li>
+            <li><strong>Different year, different line.</strong> The year panels describe the September <strong>2025</strong> and <strong>2026</strong> intakes; the 2027 figures come from the results email alone. Samira is applying for September <strong>2027</strong>; the thresholds will move with that cohort's scores.</li>
             <li><strong>“Passed” means academically over the line</strong> — score plus writing standard against the last-offered ranges CCHS disclosed. It is not a count of offers made.</li>
             <li><strong>Area is decided by the school's own measurement</strong> of the home-to-school distance against the 12.5-mile priority boundary (Policy 1.5), not by a map estimate.</li>
             <li><strong>The writing standard is a separate gate.</strong> A candidate needs both the score and “Of the Standard” in creative writing — as the 3 girls at 118+ who missed it show.</li>
@@ -469,11 +802,12 @@
       </section>
 
       <footer>
-        <p><strong>Sources.</strong> Analysis of the published anonymised results for the September 2026 intake (1,198 candidates):
+        <p><strong>Sources.</strong> Analysis of the published anonymised results for the September 2025 intake (1,225 candidates) and September 2026 intake (1,198 candidates):
+          <a href="https://www.cchs.co.uk/wp-content/uploads/2025/03/Anonymised-Results.pdf">2025 Anonymised Results (PDF)</a> ·
           <a href="https://www.cchs.co.uk/wp-content/uploads/2026/03/2026-Anonymised-Scores.pdf">2026 Anonymised Scores (PDF)</a> ·
           last-offered score ranges via <a href="https://www.cchs.co.uk/admissions/foi-requests/">CCHS Admissions — FOI requests</a>.
           Samira's result: CCHS admissions email, 12 October 2026.</p>
-        <p>Prepared for the Ganeev family · October 2026. Figures for the 2026 intake are historical and do not predict 2027 offers.</p>
+        <p>Prepared for the Ganeev family · October 2026. Figures for the 2025 and 2026 intakes are historical and do not predict 2027 offers.</p>
       </footer>
     </div>
 
@@ -636,6 +970,163 @@
         txt(z, ZX(106.68) + 66, zAxisY - 28, "inside the last-offered range", "axis-label", "middle", null, 11.5);
         // outside threshold pointer
         txt(z, zW - zmR, zAxisY + 78, "Outside-area cut-off (≥ 118) lies far off this scale →", "", "end", 600, 13, tok("--blue"));
+      })();
+    </script>
+    <script>
+      (function(){
+        "use strict";
+        var NS = "http://www.w3.org/2000/svg";
+        function el(tag, attrs, parent){
+          var n = document.createElementNS(NS, tag);
+          for (var k in attrs) n.setAttribute(k, attrs[k]);
+          if (parent) parent.appendChild(n);
+          return n;
+        }
+        function txt(parent, x, y, str, cls, anchor, weight, size, fill){
+          var t = el("text", {x:x, y:y, "text-anchor": anchor||"middle", "class": cls||""}, parent);
+          if (weight) t.setAttribute("font-weight", weight);
+          if (size) t.setAttribute("font-size", size);
+          if (fill) t.setAttribute("fill", fill);
+          t.textContent = str;
+          return t;
+        }
+        var css = getComputedStyle(document.documentElement);
+        function tok(name){ return css.getPropertyValue(name).trim(); }
+
+        /* ---------------- year tabs ---------------- */
+        var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+        tabs.forEach(function(tab){
+          tab.addEventListener("click", function(){
+            tabs.forEach(function(t){
+              var on = t === tab;
+              t.setAttribute("aria-selected", on ? "true" : "false");
+              document.getElementById(t.getAttribute("data-panel")).hidden = !on;
+            });
+          });
+        });
+
+        /* ---------------- 2025 histogram ---------------- */
+        var bands = [76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124,126,128,130,132,134];
+        var pri = [0,3,5,3,9,14,18,21,20,22,25,19,24,13,21,22,15,20,22,23,14,11,10,6,11,5,1,1,0,1];
+        var out = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,12,15,19,16,15,13,8,9,1,0,0];
+
+        var svg = document.getElementById("hist25");
+        var W = 960, H = 430, mL = 44, mR = 14, mT = 46, mB = 44;
+        var plotW = W - mL - mR, plotH = H - mT - mB;
+        var x0 = 74, x1 = 137;
+        function X(v){ return mL + (v - x0) / (x1 - x0) * plotW; }
+        function Y(v){ return mT + plotH - v / 32 * plotH; }
+
+        [0,5,10,15,20,25,30].forEach(function(g){
+          el("line", {x1:mL, x2:W-mR, y1:Y(g), y2:Y(g), "class":"grid-line"}, svg);
+          txt(svg, mL-8, Y(g)+4, g, "axis-label", "end");
+        });
+        txt(svg, mL, 18, "Candidates per 2-point band", "axis-label", "start", 600, 11.5);
+        for (var v = 80; v <= 135; v += 5){
+          txt(svg, X(v), H - mB + 20, v, "axis-label", "middle");
+          el("line", {x1:X(v), x2:X(v), y1:H-mB, y2:H-mB+5, "class":"grid-line"}, svg);
+        }
+        txt(svg, mL + plotW/2, H - 6, "Total standardised score", "axis-label", "middle", null, 12);
+
+        var gP = el("g", {}, svg), gO = el("g", {}, svg), gHit = el("g", {}, svg);
+        var bw = (X(78) - X(76)) - 1.5;
+        var tip = document.getElementById("tip");
+        function tipHTML(i){
+          return "<b>Score " + bands[i] + "–" + (bands[i]+2) + "</b>" +
+            "<div class='row'><span class='sw' style='background:#4cb96b'></span>Priority area: <b>" + pri[i] + "</b></div>" +
+            "<div class='row'><span class='sw' style='background:#6ea8e8'></span>Outside area: <b>" + out[i] + "</b></div>";
+        }
+        function showTip(e, i){ tip.innerHTML = tipHTML(i); moveTip(e); tip.classList.add("show"); }
+        function showTipAt(x, y, i){ tip.innerHTML = tipHTML(i); tip.style.left = x + "px"; tip.style.top = y + "px"; tip.classList.add("show"); }
+        function moveTip(e){ tip.style.left = e.clientX + "px"; tip.style.top = e.clientY + "px"; }
+        function hideTip(){ tip.classList.remove("show"); }
+
+        bands.forEach(function(b, i){
+          if (pri[i] > 0){
+            el("rect", {x:X(b)+0.75, y:Y(pri[i]), width:bw, height:Y(0)-Y(pri[i]), rx:1.5, "class":"bar-p"}, gP);
+          }
+          if (out[i] > 0){
+            el("rect", {x:X(b)+0.75, y:Y(out[i]), width:bw, height:Y(0)-Y(out[i]), rx:1.5, "class":"bar-o"}, gO);
+          }
+          var hit = el("rect", {x:X(b), y:mT, width:X(b+2)-X(b), height:plotH, "class":"bar-hit",
+                                  "data-i": i, tabindex:"0", role:"button",
+                                  "aria-label":"Scores " + b + " to " + (b+2) + ": priority " + pri[i] + ", outside " + out[i]}, gHit);
+          hit.addEventListener("mouseenter", function(e){ showTip(e, i); });
+          hit.addEventListener("mousemove", moveTip);
+          hit.addEventListener("mouseleave", hideTip);
+          hit.addEventListener("focus", function(){ var r = hit.getBoundingClientRect(); showTipAt(r.left + r.width/2, r.top, i); });
+          hit.addEventListener("blur", hideTip);
+          hit.addEventListener("click", function(e){ showTip(e, i); });
+        });
+
+        var gT = el("g", {}, svg);
+        el("line", {x1:X(107), x2:X(107), y1:mT-6, y2:H-mB, "class":"thresh-p"}, gT);
+        txt(gT, X(107)-6, mT-24, "Priority cut-off", "axis-label", "end", 700, 12, tok("--green"));
+        txt(gT, X(107)-6, mT-10, "> 107", "axis-label", "end", 600, 12, tok("--green"));
+        el("line", {x1:X(116), x2:X(116), y1:mT-6, y2:H-mB, "class":"thresh-o"}, gT);
+        txt(gT, X(116)+6, mT-24, "Outside cut-off", "axis-label", "start", 700, 12, tok("--blue"));
+        txt(gT, X(116)+6, mT-10, "≥ 116", "axis-label", "start", 600, 12, tok("--blue"));
+
+        var gS = el("g", {}, svg);
+        el("line", {x1:X(106.68), x2:X(106.68), y1:mT-6, y2:H-mB, "class":"samira-line"}, gS);
+        var badge = el("g", {}, gS);
+        var bx = X(106.68) + 8, by = mT + 66;
+        el("rect", {x:bx, y:by-17, width:158, height:26, rx:13, fill:tok("--red")}, badge);
+        txt(badge, bx + 79, by + 1, "Samira · 106.68", "", "middle", 700, 13, "#ffffff");
+        el("line", {x1:X(106.68)+1, x2:bx, y1:by-4, y2:by-4, stroke:tok("--red"), "stroke-width":1.5}, badge);
+
+        function wireToggle(id, target){
+          var btn = document.getElementById(id);
+          btn.addEventListener("click", function(){
+            var on = btn.getAttribute("aria-pressed") !== "true";
+            btn.setAttribute("aria-pressed", on ? "true" : "false");
+            target.style.display = on ? "" : "none";
+          });
+        }
+        wireToggle("tg-p25", gP);
+        wireToggle("tg-o25", gO);
+        wireToggle("tg-s25", gS);
+
+        /* ---------------- 2025 donut ---------------- */
+        var donut = document.getElementById("donut25");
+        var cx = 90, cy = 90, r = 66, sw2 = 26;
+        function arcPath(fracStart, frac){
+          var a0 = -Math.PI/2 + fracStart * Math.PI * 2;
+          var a1 = a0 + frac * Math.PI * 2;
+          var large = frac > 0.5 ? 1 : 0;
+          return "M " + (cx + r*Math.cos(a0)) + " " + (cy + r*Math.sin(a0)) +
+                 " A " + r + " " + r + " 0 " + large + " 1 " + (cx + r*Math.cos(a1)) + " " + (cy + r*Math.sin(a1));
+        }
+        el("circle", {cx:cx, cy:cy, r:r, fill:"none", stroke:tok("--surface-2"), "stroke-width":sw2}, donut);
+        el("path", {d:arcPath(0, 148/244), fill:"none", stroke:tok("--green"), "stroke-width":sw2}, donut);
+        el("path", {d:arcPath(148/244, 96/244), fill:"none", stroke:tok("--blue"), "stroke-width":sw2}, donut);
+        txt(donut, cx, cy - 4, "244", "", "middle", 800, 34, tok("--ink")).setAttribute("font-family", "'Newsreader', Georgia, serif");
+        txt(donut, cx, cy + 20, "girls over the line", "axis-label", "middle", null, 11.5);
+
+        /* ---------------- 2025 zoom number line ---------------- */
+        var z = document.getElementById("zoom25");
+        var zW = 960, zmL = 30, zmR = 30, zAxisY = 168, zTop = 30;
+        var zx0 = 105, zx1 = 111;
+        function ZX(v){ return zmL + (v - zx0) / (zx1 - zx0) * (zW - zmL - zmR); }
+        el("rect", {x:ZX(107), y:zTop + 26, width:ZX(108)-ZX(107), height:zAxisY - zTop - 26, rx:8,
+                    fill:tok("--amber-soft"), stroke:tok("--amber"), "stroke-dasharray":"5 4"}, z);
+        txt(z, (ZX(107)+ZX(108))/2, zTop + 14, "LAST-OFFERED RANGE · 2025 PRIORITY", "axis-label", "middle", 700, 12, tok("--amber"));
+        el("line", {x1:zmL, x2:zW-zmR, y1:zAxisY, y2:zAxisY, stroke:tok("--ink-3"), "stroke-width":1.5}, z);
+        for (var zv = 105; zv <= 111; zv++){
+          el("line", {x1:ZX(zv), x2:ZX(zv), y1:zAxisY, y2:zAxisY+7, stroke:tok("--ink-3"), "stroke-width":1.5}, z);
+          txt(z, ZX(zv), zAxisY + 26, zv, "axis-label", "middle", 600, 13);
+        }
+        txt(z, zmL + (zW-zmL-zmR)/2, zAxisY + 52, "Total standardised score", "axis-label", "middle", null, 12);
+        el("line", {x1:ZX(107), x2:ZX(107), y1:zTop+34, y2:zAxisY, "class":"thresh-p"}, z);
+        txt(z, ZX(107) - 10, zAxisY + 78, "Cut-off applied: score > 107", "", "end", 700, 13.5, tok("--green"));
+        el("circle", {cx:ZX(107.05), cy:zAxisY, r:7, fill:tok("--surface"), stroke:tok("--green"), "stroke-width":3}, z);
+        txt(z, ZX(107.05) + 58, zAxisY - 46, "107.05", "", "middle", 700, 15, tok("--green"));
+        txt(z, ZX(107.05) + 58, zAxisY - 28, "lowest of the 148", "axis-label", "middle", null, 11.5);
+        el("line", {x1:ZX(106.68), x2:ZX(106.68), y1:zTop+34, y2:zAxisY, "class":"samira-line"}, z);
+        el("circle", {cx:ZX(106.68), cy:zAxisY, r:8, fill:tok("--red"), stroke:tok("--surface"), "stroke-width":2.5}, z);
+        txt(z, ZX(106.68) - 44, zAxisY - 46, "Samira · 106.68", "", "middle", 800, 16, tok("--red"));
+        txt(z, ZX(106.68) - 44, zAxisY - 28, "below the 2025 cut-off", "axis-label", "middle", null, 11.5);
+        txt(z, zW - zmR, zAxisY + 78, "Outside-area cut-off (≥ 116) lies far off this scale →", "", "end", 600, 13, tok("--blue"));
       })();
     </script>
   </body>
